@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image zoom</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .image-thumb {
+      align-items: center;
+      border: solid 1px silver;
+      display: inline-flex;
+      height: 400px;
+      justify-content: center;
+      position: relative;
+      width: 400px;
+    }
+
+    .image-thumb:hover {
+      cursor: none;
+    }
+
+    .image-thumb img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .preview-element {
+      background-color: rgba(0, 0, 0, .1);
+      position: absolute;
+    }
+
+    .zoom-image-wrapper {
+      border: solid 1px silver;
+      display: inline;
+      float: left;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+    }
+
+    .zoom-image-container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .zoom-image {
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="image-thumb" class="image-thumb" data-image="./images/stones.jpg">
+    <img src="images/thumb_stones.jpg" />
+    <div id="preview-element" class="preview-element"></div>
+  </div>
+  <div class="zoom-image-wrapper">
+    <div class="zoom-image-container" id="zoom-image-container">
+      <img class="zoom-image" id="zoom-image" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    imageZoom();
+  </script>
+</body>
+</html>
