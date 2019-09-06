@@ -1,5 +1,5 @@
 const imageZoom = () => {
-  const zoom = 2;
+  const zoom = 5;
   const thumb = document.getElementById('image-thumb');
   const previewElement = document.getElementById('preview-element');
   const zoomImageContainer = document.getElementById('zoom-image-container');
@@ -45,7 +45,7 @@ const imageZoom = () => {
 
   zoomImage.src = thumb.getAttribute('data-image');
 
-  thumb.addEventListener('mousemove', e => calculatePosition(e.pageX - thumb.offsetLeft, e.pageY - thumb.offsetTop));
+  thumb.addEventListener('mousemove', e => calculatePosition(e.pageX - thumb.getBoundingClientRect().left, e.pageY - thumb.getBoundingClientRect().top));
   thumb.addEventListener('mouseover', _ => previewElement.style.display = '');
   thumb.addEventListener('mouseout', _ => previewElement.style.display = 'none');
 }
