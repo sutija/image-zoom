@@ -45,7 +45,8 @@ const imageZoom = () => {
 
   zoomImage.src = thumb.getAttribute('data-image');
 
-  thumb.addEventListener('mousemove', e => calculatePosition(e.pageX - thumb.getBoundingClientRect().left, e.pageY - thumb.getBoundingClientRect().top));
+  thumb.addEventListener('mousemove', e => calculatePosition(e.pageX - thumb.getBoundingClientRect().left - window.scrollX, 
+  e.pageY - thumb.getBoundingClientRect().top - window.scrollY));
   thumb.addEventListener('mouseover', _ => previewElement.style.display = '');
   thumb.addEventListener('mouseout', _ => previewElement.style.display = 'none');
 }
